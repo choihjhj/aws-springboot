@@ -5,6 +5,7 @@ import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jojoldu.book.springboot.domain.posts.Posts;
 import com.jojoldu.book.springboot.domain.posts.PostsRepository;
+import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -71,7 +72,7 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build();
 
-        String url = "http://localhost:" + port + "/api/v1/posts";
+        String url = "http://localhost:" + "9090" + "/api/v1/posts";
 
         //when
 //        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestsDto, long.class);
@@ -89,7 +90,7 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
 
-/*
+
     @Test
     @WithMockUser(roles = "USER")
     public void Posts_수정된다() throws Exception {
@@ -121,6 +122,6 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
-*/
+
 
 }
