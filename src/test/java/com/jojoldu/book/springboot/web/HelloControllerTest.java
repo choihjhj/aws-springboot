@@ -10,9 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+
+
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 //@RunWith(SpringRunner.class) // JUnit4 버전
 @ExtendWith(SpringExtension.class) //JUnit5 버전
@@ -27,27 +29,31 @@ public class HelloControllerTest {
 
     @Test
     public void hello가_리턴된다() throws Exception {
+        //given
         String hello = "hello";
 
-        mvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+        //when, then
+        mvc.perform(get("/hello")) //get매핑으로 /hello 요청
+                .andExpect(status().isOk()) // 200번 OK상태인지 확인
+                .andExpect(content().string(hello)); //hello 리턴하는지 확인
     }
-/*
-    @WithMockUser(roles="USER")
+
+    //@WithMockUser(roles="USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
+        //given
         String name = "hello";
         int amount = 1000;
 
+        //when, then
         mvc.perform(
                         get("/hello/dto")
                                 .param("name", name)
                                 .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(name)))
-                .andExpect(jsonPath("$.amount", is(amount)));
+                .andExpect(jsonPath("$.name", is(name))) //json 응닫값이 name과 같은지
+                .andExpect(jsonPath("$.amount", is(amount))); //json 응답값이 amount와 같은지
     }
-    */
+
 
 }
