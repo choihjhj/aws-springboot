@@ -36,22 +36,21 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 
 	//JUnit
-	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// spring security oauth2 client
-	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 	//spring-session-jdbc 등록(데이터베이스를 세션 저장소로 사용하기)
-	//implementation 'org.springframework.session:spring-session-jdbc'
+	implementation 'org.springframework.session:spring-session-jdbc'
 
 
 	// security
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-//	implementation 'org.springframework.security:spring-security-test'
-	//testImplementation("org.springframework.security:spring-security-test")
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation("org.springframework.security:spring-security-test")
 
 	//mariaDB 드라이버 등록
-	//implementation 'org.mariadb.jdbc:mariadb-java-client'
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
 
 }
 
