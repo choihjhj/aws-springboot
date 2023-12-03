@@ -72,7 +72,7 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build();
 
-        String url = "http://localhost:" + "9090" + "/api/v1/posts";
+        String url = "http://localhost:" + port + "/api/v1/posts";
 
         //when
 //        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestsDto, long.class);
