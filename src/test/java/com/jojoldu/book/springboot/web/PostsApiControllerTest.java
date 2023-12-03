@@ -46,14 +46,18 @@ public class PostsApiControllerTest {
     private WebApplicationContext context;
 
     private MockMvc mvc;
-
     @BeforeEach
-    public void setip() {
-        mvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .apply(springSecurity())
-                .build();
+    public void setup() {
+        mvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
+
+//    @BeforeEach
+//    public void setup() {
+//        mvc = MockMvcBuilders
+//                .webAppContextSetup(context)
+//                .apply(springSecurity())
+//                .build();
+//    }
 
     @AfterEach
     public void tearDown() throws Exception {
