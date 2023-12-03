@@ -15,14 +15,6 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
- /* ----- 로그 테스트
-    @GetMapping("/log")
-    public String test(){
-        String temp="test";
-        log.info("-------log test : {}",temp);
-        return temp;
-    }
-*/
     @PostMapping("/api/v1/posts")
     public long save(@RequestBody PostsSaveRequestDto requestsDto) {
         return postsService.save(requestsDto);
@@ -30,20 +22,21 @@ public class PostsApiController {
 
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-//        log.info("------------ update--------"); //로그 안찍힘
         return postsService.update(id, requestDto);
     }
 
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id) {
+
+        log.info("------------ findById : {}--------",id);
         return postsService.findById(id);
     }
-/*
+
     @DeleteMapping("/api/v1/posts/{id}")
     public Long delete(@PathVariable Long id) {
         postsService.delete(id);
         return id;
     }
 
-*/
+
 }
