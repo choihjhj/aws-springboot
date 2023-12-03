@@ -39,5 +39,9 @@ out/
 =======
 
 application-oauth.properties
+<<<<<<< HEAD
 OAuth2Config.java
 >>>>>>> 107d6e5 (.gitignore O에Auth2Config 추가)
+=======
+src/main/java/com/jojoldu/book/springboot/config/auth/OAuth2Config.java
+>>>>>>> a9012d7 (.gitignore O에Auth2Config 추가수정)
