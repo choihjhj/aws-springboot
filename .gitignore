@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
+=======
+
+application-oauth.properties
+OAuth2Config.java
+>>>>>>> 107d6e5 (.gitignore O에Auth2Config 추가)
