@@ -5,10 +5,12 @@ import com.jojoldu.book.springboot.service.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 @RequiredArgsConstructor
 @RestController
+@Slf4j
 public class PostsApiController {
 
     private final PostsService postsService;
@@ -20,6 +22,7 @@ public class PostsApiController {
 
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
+        log.info("requestDto : "+requestDto);
         return postsService.update(id, requestDto);
     }
 
