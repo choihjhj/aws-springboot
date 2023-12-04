@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor //기본생성자 생성
 @Entity
-public class Posts extends BaseTimeEntity {
+public class Posts extends BaseTimeEntity { //BaseTimeEntity(createdDate,modifiedDate 상속받도록함)
 
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //pk auto 증가 옵션
