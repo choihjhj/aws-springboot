@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class Posts extends BaseTimeEntity {
 
     @Id //pk
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //pk auto 증가 옵션
+    private Long id; //Entity의 pk는 long타입이 좋음, 조합해서 사용하는것 비추
 
     @Column(length = 500, nullable = false)
     private String title;
