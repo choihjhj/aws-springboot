@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class) //JUnit5 버전
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) //컨트롤러,서비스,레포지토리사용할때
 public class PostsApiControllerTest {
     @LocalServerPort
     private int port;
@@ -41,6 +41,17 @@ public class PostsApiControllerTest {
 
     @Autowired
     private PostsRepository postsRepository;
+    /*
+    --- 아래 context, mvc, setup() 해줘야 mvc를 @SpringBootTest로 사용할 수 있음(컨트롤러,서비스,레포지토리 테스트하려면)
+    --- 웹API(컨트롤러)만 테스트 하려면
+        @WebMvcTest(controllers = HelloController.class,
+             excludeFilters = {
+                     @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+             }) 랑
+        @Autowired
+        private MockMvc mvc; 이거써서 테스트 가능
+
+    */
 
     @Autowired
     private WebApplicationContext context;
@@ -109,9 +120,9 @@ public class PostsApiControllerTest {
 
         String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
 
-        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         //when
+//        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 //        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
         mvc.perform(put(url)
                         .contentType(MediaType.APPLICATION_JSON)
