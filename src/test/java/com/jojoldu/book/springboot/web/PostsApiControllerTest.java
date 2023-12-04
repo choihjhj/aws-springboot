@@ -12,14 +12,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.security.test.context.support.WithMockUser;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -36,8 +33,8 @@ public class PostsApiControllerTest {
     @LocalServerPort
     private int port;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+//    @Autowired
+//    private TestRestTemplate restTemplate;
 
     @Autowired
     private PostsRepository postsRepository;
@@ -61,14 +58,6 @@ public class PostsApiControllerTest {
     public void setup() {
         mvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
-
-//    @BeforeEach
-//    public void setup() {
-//        mvc = MockMvcBuilders
-//                .webAppContextSetup(context)
-//                .apply(springSecurity())
-//                .build();
-//    }
 
     @AfterEach
     public void tearDown() throws Exception {
