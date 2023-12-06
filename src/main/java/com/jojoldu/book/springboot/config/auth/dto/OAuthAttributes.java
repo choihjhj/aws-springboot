@@ -25,8 +25,9 @@ public class OAuthAttributes {
     }
 
     // OAuth2User에서 반환하는 사용자 정보는 Map이기 때문에 값 하나하나를 변환
+
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
-        if("naver".equals(registrationId)) {
+        if("naver".equals(registrationId)) { //naver인지 판단하는 코드
             return ofNaver("id", attributes);
         }
         return ofGoogle(userNameAttributeName, attributes);
