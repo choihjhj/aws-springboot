@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "users") //Posts와 구분하고자 넣음, 근데 user는 예약어라서 쓰면 안되니까 users라고 테이블명 셋팅
 @Entity
 public class User extends BaseTimeEntity  {
 
