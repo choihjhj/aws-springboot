@@ -4,7 +4,7 @@
        
 ## 💻 개발 환경
 - **Java** : JDK 11
-- **Editor** : Intellij Ultimate
+- **Editor** : Intellij IDEA
 - **Database** : h2, MariaDB
 - **Gradle 8.3**<br>
 <br>
