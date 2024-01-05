@@ -3,9 +3,9 @@
 <br>
        
 ## 💻 개발 환경
-<!--
+     
 ![image](https://github.com/choihjhj/aws-springboot/assets/148078504/fbb43120-6b7c-41e1-a9ba-b94c82b7dc21)
--->
+    
 - **Java** : JDK 11
 - **Editor** : Intellij IDEA
 - **Database** : h2, MariaDB
